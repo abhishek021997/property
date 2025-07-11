@@ -20,7 +20,7 @@ if(isset($_POST['submit']))
 
     // Check if files are uploaded
     if (empty($images) || empty($videos)) {
-        echo "Please upload both images and videos!";
+        echo "<script>alert('Please upload both images and videos!')</script>";
         exit;
     }
     // Check if the uploaded files are valid
@@ -29,22 +29,25 @@ if(isset($_POST['submit']))
     $imageType = $_FILES['images']['type'];
     $videoType = $_FILES['file']['type'];
     if (!in_array($imageType, $allowedImageTypes)) {
-        echo "Invalid image format! Only JPEG, PNG, and GIF are allowed.";
+        
+        echo "<script>alert('Invalid image format! Only JPEG, PNG, and GIF are allowed.')</script>";
         exit;
     }
     if (!in_array($videoType, $allowedVideoTypes)) {
-        echo "Invalid video format! Only MP4, AVI, and MPEG are allowed.";
+        
+        echo "<script>alert('Invalid video format! Only MP4, AVI, and MPEG are allowed.')</script>";
         exit;
     }
     // Check if the file size is within limits (e.g., 5MB for images and 20MB for videos)
     $maxImageSize = 5 * 1024 * 1024; // 5MB
     $maxVideoSize = 20 * 1024 * 1024; // 20MB
     if ($_FILES['images']['size'] > $maxImageSize) {
-        echo "Image size exceeds the limit of 5MB!";
+        echo "<script>alert('Image size exceeds the limit of 5MB!')</script>";
         exit;
     }
     if ($_FILES['file']['size'] > $maxVideoSize) {
-        echo "Video size exceeds the limit of 20MB!";
+        echo "<script>alert('Video size exceeds the limit of 20MB!')</script>";
+        
         exit;
     }
 
@@ -54,40 +57,47 @@ if(isset($_POST['submit']))
     }
     // Check if the uploads directory is writable
     if (!is_writable('uploads')) {
-        echo "Uploads directory is not writable!";
+        echo "<script>alert('Uploads directory is not writable!')</script>";
+        
         exit;
     }
 
     //Undefined array key "videos" 
     if (!isset($_FILES['file']) || $_FILES['file']['error'] != UPLOAD_ERR_OK) {
-        echo "No video file uploaded!";
+        echo "<script>alert('No video file uploaded!')</script>";
         exit;
     }
 
     // Move uploaded files to a specific directory
-    $targetDir = "uploads/";
+    $targetDir = "../uploads/";
     $imageTargetPath = $targetDir . basename($_FILES['images']['name']);
     $videoTargetPath = $targetDir . basename($_FILES['file']['name']);
     if (!move_uploaded_file($_FILES['images']['tmp_name'], $imageTargetPath)) {
-        echo "Error uploading image file!";
+        
+        echo "<script>alert('Error uploading image file!')</script>";
         exit;
     }
     if (!move_uploaded_file($_FILES['file']['tmp_name'], $videoTargetPath)) {
-        echo "Error uploading video file!";
+        
+        echo "<script>alert('Error uploading video file!')</script>";
         exit;
     }
 
     // Validate inputs
     if (empty($propertyType) || empty($types) || empty($propertyLocation) || empty($propertyPrice) || empty($Roomtype) || empty($propertyDescription) || empty($ownerName) || empty($ownerContact) || empty($ownerEmail)) {
-        echo "All fields are required!";
+        
+        echo "<script>alert('All fields are required!')</script>";
         exit;
     }
     if (!filter_var($ownerEmail, FILTER_VALIDATE_EMAIL)) {
-        echo "Invalid email format!";
+        echo "<script>alert('Invalid email format!')</script>";
+        
         exit;
     }
     if (!preg_match('/^[0-9]{10}$/', $ownerContact)) {
-        echo "Invalid contact number! It should be 10 digits.";
+        
+        echo "<script>alert('Invalid contact number! It should be 10 digits.')</script>";
+        
         exit;
     }
 

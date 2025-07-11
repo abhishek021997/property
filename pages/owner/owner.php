@@ -118,7 +118,7 @@
         </nav>
     </header>
     <h1>Provide your Details</h1>
-    <form action="php_server/owner.php" method="post" enctype="multipart/form-data">
+    <form action="../../php_server/owner.php" method="post" enctype="multipart/form-data">
         <label for="propertyType">Property Type:</label>
         <select id="propertyType" name="propertyType" required>
             <option value="residential">Residential</option>
@@ -129,7 +129,7 @@
         <script>
             document.getElementById('propertyType').addEventListener('change', function() {
                 const selectedValue = this.value;
-                const propertyTypeSelect = document.getElementById('propertyType');
+                const propertyTypeSelect = document.getElementById('propertyfor');
                 if (selectedValue === 'residential') {
                     propertyTypeSelect.innerHTML = `
                         <option value="single">Single Room</option>
@@ -179,6 +179,7 @@
         <select id="girlsboyes" name="Roomtype" style="display: none;">
             <option value="girls">Girls</option>
             <option value="boys">Boys</option>
+            <option value="NA" selected>No selected</option>
             
         </select>
         <br><br>

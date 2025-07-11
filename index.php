@@ -1,5 +1,5 @@
 <?php
-include 'connection.php';
+include 'php_server/connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +59,7 @@ include 'connection.php';
     <div class="container">
         <h2>Available Properties</h2>
         <div class="property">
-                <div class="property-card" onclick="location.href = 'pages/owner/owner.html';">
+                <div class="property-card" onclick="location.href = 'pages/owner/owner.php';">
                     <img src="images/img.jpg" alt="Property 1">
                     <div class="details">
                         <h3>Owner</h3>
@@ -87,7 +87,7 @@ include 'connection.php';
     
     <button class="open-button" onclick="openForm()"><i class="fas fa-comment-dots"></i></button>
     <div class="form-popup" id="myForm">
-        <form action="contact_form.php" class="form-container">
+        <form action="php_server/contact_form.php" method="POST" class="form-container">
             <h2>Contact Form</h2>
 
             <label for="name"><b>Name</b></label>
@@ -96,7 +96,8 @@ include 'connection.php';
             <label for="phone"><b>Contact number</b></label>
             <input type="mobile" placeholder="Enter Phone number" name="phone" required>
 
-            <button type="submit" class="btn">Submit</button>
+            <input type="submit" class="btn btn-primary" name="submit" value="Submit">
+            
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
 
@@ -105,16 +106,16 @@ include 'connection.php';
 
     <div id="mySidenav" class="sidenav">
         <a href="javascript:void(0)" class="closebtn" onclick="closeSelection()">&times;</a>
-        <form action="/pages/student/student.php" method="POST" class="form-container">
+        <form action="pages/student/student.php" method="POST" class="form-container">
             <h2>Student Selection</h2>
             <label for="studentName"><b>Student Name</b></label>
-            <input type="text" placeholder="Enter student name" name="studentName" required>
+            <input type="text" placeholder="Enter student name" name="names" required>
 
             <label for="studentContact"><b>Contact Number</b></label>
-            <input type="text" placeholder="Enter student contact number" name="studentContact" required>
+            <input type="text" placeholder="Enter student contact number" name="contact" required>
 
             <label for="Roomtype"><b>Room Type</b></label>
-            <select id="Roomtype" name="Roomtype" required>
+            <select id="Roomtype" name="roomtype" required>
                 <option value="single">Single Room</option>
                 <option value="1RK">1 RK</option>
                 <option value="shared">Shared Room</option>
@@ -122,15 +123,15 @@ include 'connection.php';
                 <option value="2BHK">2 BHK</option>
                 <option value="3BHK">3 BHK</option>
             </select>
-            <select id="Roomfor" name="Roomfor" required>
+            <select id="Roomfor" name="roomfor" required>
                 <option value="boys">Boys Room</option>
                 <option value="girls">Girls Room</option>
             </select>
 
 
-            <button type="submit" class="btn">Submit</button>
+            <input type="submit" class="btn btn-primary" name="submitstud" value="Upload">
         </form>
-            <button type="button" class="btn" onclick="location.href = 'pages/student/student.html';">Submit</button>
+            
     </div>
 
     <div id="mySidenavcommer" class="sidenav">
@@ -161,7 +162,50 @@ include 'connection.php';
             </select>
 
 
-            <button type="submit" class="btn">Submit</button>
+            <input type="submit" class="btn btn-primary" name="submitcomm" value="Upload">
         </form>
-            <button type="button" class="btn" onclick="location.href = 'pages/commercial/commer.html';">Submit</button>
     </div>
+
+    <div id="contact_slid">
+           <a href="https://wa.me/+91-8527763950?text=Hi,connect-me" id="projects">Whatapp<i class="fas fa-comment"></i></a>
+        <a href="tel:+91-8527763950" id="contact">Call Us  <i class="fas fa-phone"></i></a>
+        
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Suraj's Property Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+    
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+
+    function openSelection() {
+        document.getElementById("mySidenav").style.width = "100%";
+    }
+
+    function closeSelection() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+
+    function opencommer() {
+        document.getElementById("mySidenavcommer").style.width = "100%";
+    }
+
+    function closecommer() {
+        document.getElementById("mySidenavcommer").style.width = "0";
+    }
+
+
+    
+</script>
+</body>
+</html>
