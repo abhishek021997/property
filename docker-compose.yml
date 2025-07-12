@@ -1,0 +1,46 @@
+networks:
+  property_network:
+
+version: '1'
+services:
+  php-environment:
+    container_name: webapp-php
+    image: webapp-php
+    depends_on:
+      - db
+    volumes:
+      - ./web_page:/var/www/html/
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - property_network
+
+  db:
+    container_name: db
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: PASSWORD
+      MYSQL_DATABASE: propertydb
+      MYSQL_USER: suraj
+      MYSQL_PASSWORD: PASS
+    ports:
+      - "9906:3306"
+    networks:
+      - property_network
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+    restart: always
+    ports:
+      - 8081:80
+    depends_on:
+      - db
+    networks:
+      - property_network
