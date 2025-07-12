@@ -4,20 +4,8 @@ include 'php_server/connection.php';
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Room Rent & Property Renting">
-    <meta name="keywords" content="rent,room rent, property, sale, buy, store, commersial, student">
-    <meta name="author" content="Suraj Panth">
-    <meta name="theme-color" content="#ffffff">
-
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <title>Property Website</title>
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
+    <?php include 'pages/meta.php';  ?>
+    <title>JSR PROPERTY</title>
     <style>
        
         .sidenav .form-container {
@@ -47,15 +35,7 @@ include 'php_server/connection.php';
 </head>
 
 <body>
-    <header>
-        <a href="" class="logo"><i>LOGO</i></a>
-        <h1>Welcome to Property buying</h1>
-        <nav>
-            <a href="#"><i class="fas fa-home"></i>Home</a>
-            <a onclick="openForm()"><i class="fas fa-phone"></i>Contact Us</a>
-            <a href="#"><i class="fas fa-info"></i>About Us</a>
-        </nav>
-    </header>
+    <?php include 'pages/header.php';  ?>
     <div class="container">
         <h2>Available Properties</h2>
         <div class="property">
@@ -166,17 +146,8 @@ include 'php_server/connection.php';
         </form>
     </div>
 
-    <div id="contact_slid">
-           <a href="https://wa.me/+91-8527763950?text=Hi,connect-me" id="projects">Whatapp<i class="fas fa-comment"></i></a>
-        <a href="tel:+91-8527763950" id="contact">Call Us  <i class="fas fa-phone"></i></a>
-        
-    </div>
+    <?php include 'pages/footer.php';  ?>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Suraj's Property Website. All rights reserved.</p>
-        </div>
-    </footer>
 
 <script>
     function openForm() {

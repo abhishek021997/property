@@ -2,12 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Cards</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../css/style.css">
+    <?php include 'meta.php';  ?>
+    <title>Commersial Property Listings</title>
     <style>
         .container {
             margin: 0;
@@ -154,15 +150,8 @@
     </style>
 </head>
 <body>
-    <header>
-        <a href="" class="logo"><i>LOGO</i></a>
-        <h1>Welcome to Property buying</h1>
-        <nav>
-            <a href="../../index.html"><i class="fas fa-home"></i>Home</a>
-            <a onclick="openForm()"><i class="fas fa-phone"></i>Contact Us</a>
-            <a href="#"><i class="fas fa-info"></i>About Us</a>
-        </nav>
-    </header>
+    <?php include 'header.php';  ?>
+
     <div class="container">
 
     <?php
@@ -244,18 +233,7 @@
     </div> <!-- End of container -->
 
 
-    <div id="contact_slid">
-        <a href="#" id="projects">Whatapp<i class="fas fa-comment"></i></a>
-        <a href="#" id="contact">Call Us  <i class="fas fa-phone"></i></a>
-        
-    </div>
-    
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Suraj's Property Website. All rights reserved.</p>
-        </div>
-    </footer>
+    <?php include 'pages/footer.php';  ?>
 
 </body>
 </html>

@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Owner Details</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="../../css/style.css">
+<?php include 'meta.php';  ?>
+    <title>Property Management</title>
+
 </head>
 <style>
     body{
@@ -108,15 +105,7 @@
 </style>
 
 <body>
-    <header>
-        <a href="" class="logo"><i>LOGO</i></a>
-        <h1>Welcome to Property buying</h1>
-        <nav>
-            <a href="../../index.html"><i class="fas fa-home"></i>Home</a>
-            <a onclick="openForm()"><i class="fas fa-phone"></i>Contact Us</a>
-            <a href="#"><i class="fas fa-info"></i>About Us</a>
-        </nav>
-    </header>
+    <?php include 'header.php';  ?>
     <h1>Provide your Details</h1>
     <form action="../../php_server/owner.php" method="post" enctype="multipart/form-data">
         <label for="propertyType">Property Type:</label>
@@ -207,17 +196,7 @@
         <input type="submit" class="btn btn-primary" name="submit" value="Upload">
     </form>
 
-    <div id="contact_slid">
-        <a href="#" id="projects">Whatapp<i class="fas fa-comment"></i></a>
-        <a href="#" id="contact">Call Us  <i class="fas fa-phone"></i></a>
-        
-    </div>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Suraj's Property Website. All rights reserved.</p>
-        </div>
-    </footer>
+    <?php include 'pages/footer.php';  ?>
 
 <script>
     function handleFileSelect(event, infoElementId) {

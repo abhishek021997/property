@@ -20,8 +20,18 @@ header .logo {
     padding-left: 2%;
     padding-top: 1%;
 }
+
+
+
 header .logo:hover {
     opacity: 0.8;
+}
+
+header .logo img {
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    margin-right: 10px;
 }
 
 header h1 {
@@ -283,10 +293,95 @@ footer .container {
   }
   
 
+/* Tablet and mobile view css */
+@media (max-width: 768px) {
+    .property-card {
+        flex: 1 1 calc(50% - 1rem);
+    }
+    header .logo {
+        padding-left: 5%;
+        padding-top: 2%;
+    }
 
+    header .logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+    header nav {
+        font-size: 1rem;
+    }
+
+
+    header nav a {
+        font-size: 1rem;
+        margin: 0 0.5rem;
+    }
+    .form-container, .details-container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .property-card {
+        flex: 1 1 calc(100% - 1rem);
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+    header .logo {
+        font-size: 1.5rem;
+        padding-left: 10%;
+    }
+
+    header .logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+    header nav {
+        font-size: 0.9rem;
+    }   
+
+    header nav a {
+        font-size: 0.9rem;
+        margin: 0 0.3rem;
+    }
+    .form-container, .details-container {
+        max-width: 95%;
+    }
+}
+
+/* Dark mode styles 
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+    }
+    header {
+        background-color: #1f1f1f;
+    }
+    header nav a {
+        color: #b0b0b0;
+    }
+    header nav a:hover {
+        color: #fff;
+    }
+    .container {
+        background: #1f1f1f;
+        border-color: #333;
+    }
+    .property-card {
+        background: #2c2c2c;
+        border-color: #444;
+    }
+    .property-card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+}
+*/
 
   
-  @media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-  }
