@@ -165,7 +165,7 @@
    // output data of each row
    while($row = $result->fetch_assoc()) {
        echo '<div class="card">';
-       echo '<img src="../../uploads/'.$row["images"].'" alt="ROOM_Image">';
+       echo '<img src="../../php_server/uploads/'.$row["images"].'" alt="ROOM_Image">';
        echo '<p>View: <button onclick="video_frame'.$row["id"].'()" target="video_link">See Room Video</button></p>';
        echo '<p>Price: ₹' . $row["price"] . '</p>';
        echo '<p>Type: ' . $row["roomtype"] . '</p>';
@@ -194,7 +194,7 @@
        echo '<script>';
        echo 'function video_frame'.$row["id"].'() {';
        echo 'var videoFrame = document.getElementById("videoFrame'.$row["id"].'");';
-       echo 'videoFrame.src = "../../uploads/'.$row["videos"].'";';
+       echo 'videoFrame.src = "../../php_server/uploads/'.$row["videos"].'";';
        echo 'document.getElementById("mySidenav'.$row["id"].'").style.width = "100%";';
        echo '}';
        echo 'function close_video_frame'.$row["id"].'() {';

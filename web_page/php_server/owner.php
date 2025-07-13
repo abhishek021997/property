@@ -2,8 +2,7 @@
 include 'connection.php';
 
 $conn = new mysqli($host, $user, $pass,$dbn);
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])){
     $propertyType = $_POST['propertyType'];
     $types = $_POST['types'];
     $propertyLocation = $_POST['propertyLocation'];
@@ -43,11 +42,12 @@ if(isset($_POST['submit']))
     $maxVideoSize = 20 * 1024 * 1024; // 20MB
     if ($_FILES['images']['size'] > $maxImageSize) {
         echo "<script>alert('Image size exceeds the limit of 5MB!')</script>";
+        echo "<script>window.location.href = '../index.php';</script>";
         exit;
     }
     if ($_FILES['file']['size'] > $maxVideoSize) {
         echo "<script>alert('Video size exceeds the limit of 20MB!')</script>";
-        
+        echo "<script>window.location.href = '../index.php';</script>";
         exit;
     }
 
@@ -69,7 +69,7 @@ if(isset($_POST['submit']))
     }
 
     // Move uploaded files to a specific directory
-    $targetDir = "../uploads/";
+    $targetDir = "uploads/";
     $imageTargetPath = $targetDir . basename($_FILES['images']['name']);
     $videoTargetPath = $targetDir . basename($_FILES['file']['name']);
     if (!move_uploaded_file($_FILES['images']['tmp_name'], $imageTargetPath)) {
@@ -107,14 +107,15 @@ if(isset($_POST['submit']))
 
 
 
-if (mysqli_query($conn, $sql)) {
-    echo "<script>alert('Welcome $ownerName our team will contect you shortly')</script>";
-    echo "<script>window.location.href = '../index.php';</script>";
-}
-else {
-    echo "<script>alert('There is some error to upload your data please contect with +91-8527763950')</script>";
-    echo "<script>window.location.href = '../index.php';</script>";
-}
+    if (mysqli_query($conn, $sql)) {
+        echo "<script>alert('Welcome $ownerName our team will contect you shortly')</script>";
+        echo "<script>window.location.href = '../index.php';</script>";
+    }
+    else {
+        echo "Error: " . $sql . ":-" . mysqli_error($conn);
+        #echo "<script>alert('There is some error to upload your data please contect with +91-8527763950')</script>";
+        #echo "<script>window.location.href = '../index.php';</script>";
+    }
 mysqli_close($conn);
 }
 ?>

@@ -208,9 +208,11 @@
         <br><br>
         <label for="imageUpload">Choose images to upload:</label>
         <input type="file" id="imageUpload" name="images" accept="image/*" multiple>
+        <p> Please upload images in jpg, jpeg, png format or without spacing in name</p>
         <br><br>
         <label for="videoUpload">Choose video to upload:</label>
         <input type="file" id="videoUpload" name="file" accept="video/*" multiple>
+        <p> Please upload video in mp4 format or without spacing in name</p>
         <div class="file-info" id="mp4Info"></div>
         <br><br>
         <input type="submit" class="btn btn-primary" name="submit" value="Upload">

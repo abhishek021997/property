@@ -17,6 +17,10 @@ export DB_LOGIN_PASS= 'PASS';	# Please write you DATABASE USER PASSWORD
 
 ######################## Step-1 ########################
 
+# Create the necessary directories and set permissions
+mkdir -m 0777 -p web_page/php_server/uploads
+
+
 #-------- if fresh docker file need to run
 #-------- so uncomment below line
 
@@ -34,7 +38,8 @@ sleep 120 		# wait time 2 min you can change as per your requirement
 ######################## Step-3 ########################
 
 # After running docker-compose file take a login in phpmyadmin portal and run all the queries which is mentioned in database/users.sql file
-
+# You can also run the below command to import the sql file directly into the database
+docker exec -i $(docker ps -qf "name=db") mysql -u $DB_LOGIN_USER -p$DB_LOGIN_PASS $DB_TABLE_NAME < database/users.sql
 
 
 ######################## Step-4 ########################
